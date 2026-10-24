@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 小柏與雯莉 東北散步帖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF5EA; --card:#FFFFFF; --ink:#4B3A2C; --muted:#8E7B69; --edge:#4B3A2C;
+  --red:#EE6B6B; --yellow:#F8E7A1; --green:#5BAE7C; --land:#FDF3E3; --water:#CFE8F6; --park:#DDEFD9; --road:#F1E3C4;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-skin="snow"]{--bg:#F1F6FB;--land:#F7FAFD;--water:#C9DDF3;--park:#E3EEF5;--red:#4F8EDB;--yellow:#DCE9F8;--green:#7C6FD6;--road:#E2EAF2}
+:root[data-skin="pink"]{--bg:#FDF1F4;--land:#FFF6F8;--water:#D8E9F7;--park:#F9DDE7;--red:#E66C9A;--yellow:#FCE3C8;--green:#E0954D;--road:#F6DCE4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#201A16;--card:#2B241F;--ink:#F3E8DC;--muted:#BBA996;--edge:#120E0B;--land:#332A23;--water:#25384A;--park:#2C3B2E;--road:#40352B;--yellow:#5A4B26;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#201A16;--card:#2B241F;--ink:#F3E8DC;--muted:#BBA996;--edge:#120E0B;--land:#332A23;--water:#25384A;--park:#2C3B2E;--road:#40352B;--yellow:#5A4B26;color-scheme:dark}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"])[data-skin="snow"]{--bg:#141C26;--card:#1C2633;--land:#1D2835;--water:#20385A;--park:#22303F;--yellow:#2E4466;--road:#2A3646}
+  :root:not([data-theme="light"])[data-skin="pink"]{--bg:#24171D;--card:#2E1F26;--land:#2F2027;--water:#273548;--park:#3A2430;--yellow:#5A3346;--road:#3E2A33}}
+:root[data-theme="dark"][data-skin="snow"]{--bg:#141C26;--card:#1C2633;--land:#1D2835;--water:#20385A;--park:#22303F;--yellow:#2E4466;--road:#2A3646}
+:root[data-theme="dark"][data-skin="pink"]{--bg:#24171D;--card:#2E1F26;--land:#2F2027;--water:#273548;--park:#3A2430;--yellow:#5A3346;--road:#3E2A33}
+.tools button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+*,*::before,*::after{box-sizing:inherit}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","PingFang TC","Microsoft JhengHei",sans-serif;font-weight:500;line-height:1.6}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px}
+.box{background:var(--card);border:3px solid var(--edge);border-radius:22px;box-shadow:0 5px 0 var(--edge)}
+header{text-align:center;padding:24px 0 6px}
+h1{margin:0;font-size:clamp(24px,7vw,32px);font-weight:900;line-height:1.3}
+.subt{margin:4px 0 0;color:var(--muted);font-size:14px}
+.tools{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:12px 0 4px}
+.tools button,.tools span{font:inherit;font-size:13px;border:2px solid var(--edge);background:var(--card);color:var(--ink);border-radius:999px;padding:3px 12px}
+.tools button{cursor:pointer}
+.tools b{color:var(--red)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px dashed var(--red);outline-offset:3px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--bg)}
+.tabs{display:flex;gap:12px;overflow-x:auto;padding:10px 14px 14px;max-width:640px;margin:0 auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font:inherit;text-align:left;color:var(--ink);cursor:pointer;padding:8px 14px;border-radius:18px;min-width:150px;background:var(--card);border:3px solid var(--edge);box-shadow:0 4px 0 var(--edge)}
+.tab .t{display:flex;align-items:center;gap:6px;font-size:19px;font-weight:900}
+.tab .t svg{width:30px;height:30px}
+.tab small{display:block;color:var(--muted);font-size:13px;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--yellow)}
+
+.head{padding:16px 18px;margin:8px 0 18px}
+.head .row{display:flex;gap:12px;align-items:flex-start}
+.head svg{width:52px;height:52px;flex:0 0 auto}
+.head h2{margin:0;font-size:24px;font-weight:900;line-height:1.35}
+.head p{margin:6px 0 0;color:var(--muted)}
+.cost{display:block;width:max-content;margin:10px 0 0 auto;background:var(--yellow);border:3px dashed var(--edge);border-radius:14px;padding:4px 16px;font-weight:700}
+.cost small{font-weight:500;color:var(--muted);font-size:11px;display:block;text-align:right}
+
+.mapbox{overflow:hidden;margin-bottom:18px}
+.mapbox svg{display:block;width:100%;height:auto;border-bottom:3px solid var(--edge)}
+.mapbox text{font-family:inherit}
+.now{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;padding:16px 18px 6px}
+.now .tm{font-size:40px;font-weight:900;line-height:1}
+.now .tx{font-size:17px}
+.ctrl{display:flex;align-items:center;gap:14px;padding:10px 18px 16px;border-bottom:3px dashed var(--muted)}
+.play{width:56px;height:56px;border-radius:50%;background:var(--red);border:3px solid var(--edge);box-shadow:0 4px 0 var(--edge);color:#fff;font-size:22px;cursor:pointer;flex:0 0 auto}
+.ctrl input{flex:1;accent-color:var(--red)}
+.spd{font:inherit;font-weight:700;background:var(--yellow);border:3px solid var(--edge);border-radius:999px;padding:4px 16px;cursor:pointer;color:var(--ink)}
+.team{display:flex;flex-wrap:wrap;gap:10px;padding:14px 18px}
+.team span{display:flex;align-items:center;gap:6px;border:2px solid var(--edge);border-radius:999px;padding:2px 14px 2px 4px;font-weight:700}
+.team svg{width:30px;height:30px}
+
+ol{list-style:none;margin:0;padding:6px 14px 14px}
+.it{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:10px 8px;border-radius:14px;cursor:pointer}
+.it.on{background:var(--yellow)}
+.it time{font-weight:900;color:var(--red)}
+.it strong{display:block}
+.it small{display:block;color:var(--muted);font-size:13px}
+.it a{font-size:12px;color:var(--green);font-weight:700}
+.go{margin:0 0 0 70px;padding:2px 10px;border-left:3px dotted var(--red);font-size:13px;color:var(--muted)}
+.go em{font-style:normal;background:var(--red);color:#fff;border-radius:6px;padding:0 6px;margin-left:4px}
+.stay{margin:0 14px 16px;padding:8px 12px;border-radius:12px;background:var(--park);font-size:14px}
+.info{padding:14px 16px;margin-bottom:18px}
+.info h3{margin:0 0 8px;font-size:18px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:380px}
+td,th{text-align:left;padding:6px 6px;border-bottom:2px dotted var(--muted);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:6px 0 40px}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>2026 小柏與雯莉<br>東北散步帖</h1>
+  <p class="subt">11/27（五）– 12/04（五）・兩人一起慢慢走完每一天 ✨</p>
+  <div class="tools">
+    <button type="button" data-skin="snow">❄️ 切換雪國藍</button>
+    <button type="button" data-skin="pink">🌸 切換蘋果粉嫩</button>
+    <span>🕒 日本現在 <b id="jst">--:--</b></span>
+  </div>
+</header>
+<nav aria-label="選擇日期"><div class="tabs" id="tabs" role="tablist"></div></nav>
+<main class="wrap" id="main"></main>
+<footer class="wrap">✦ 地圖為手帳示意插畫，比例非實際距離；遠距離路段旁標示實際公里數。<br>✦ 當日合計為每人預估（餐飲、門票、PASS 以外的交通），不含購物。</footer>
+
+<script>
+const days=[
+ {d:1,date:"11/27",wd:"五",title:"東京 → 青森",stay:"Daiwa Roynet Hotel Aomori",items:[
+  ["04:25","抵達羽田 T3","入境後在航廈休息，等首班車"],
+  ["t","東京單軌 → 濱松町轉 JR → 新橋，步行 15 分","約 50 分・PASS"],
+  ["07:00","築地場外市場","早餐：玉子燒、海鮮丼"],
+  ["08:15","築地本願寺","步行 5 分；印度風格的大寺院"],
+  ["t","日比谷線 築地 → 銀座，轉丸之內線 → 東京","約 15 分・約 ¥180"],
+  ["09:30","東京站一番街","買鐵路便當，Funliday 有折抵 ¥500 券"],
+  ["t","東北新幹線 Hayabusa → 新青森，轉奧羽本線 → 青森","約 11:20 出發・3 小時 20 分・PASS・先劃位"],
+  ["14:40","Daiwa Roynet 青森 入住",""],
+  ["15:00","まるかいラーメン","昭和 31 年老店，醬油拉麵＋飯糰；站前步行 8 分，先確認營業時間"],
+  ["16:00","睡魔之家 WA・RASSE → A-FACTORY → 八甲田丸 → ASPAM","都在港邊步行 5–10 分；八甲田丸是退役青函渡輪"],
+  ["18:30","炭火焼肉 だいじゅん","晚餐，記得訂位"]]},
+ {d:2,date:"11/28",wd:"六",title:"八甲田・酸ヶ湯",stay:"Daiwa Roynet Hotel Aomori",items:[
+  ["07:00","青森魚菜中心（古川市場）のっけ丼","先買餐券再挑生魚片"],
+  ["t","JR 巴士みずうみ號 青森站 → 八甲田纜車站","約 1 小時 10 分・PASS・班次少，前一晚查好"],
+  ["10:00","八甲田纜車","往返約 ¥2,200；11 月可能點檢停駛，先查官網"],
+  ["t","同一條 JR 巴士 → 酸ヶ湯溫泉","約 10 分・PASS"],
+  ["12:30","酸ヶ湯溫泉 千人風呂＋午餐","混浴大浴場，有女性專用時段"],
+  ["t","JR 巴士 → 青森站","約 15:30 出發・1 小時 20 分・記住末班車"],
+  ["18:00","助六 青森駅前アウガ隣店","晚餐"]]},
+ {d:3,date:"11/29",wd:"日",title:"青森 → 盛岡",stay:"GRIDS PREMIUM HOTEL MORIOKA",items:[
+  ["09:00","青森退房","行李一起帶走"],
+  ["t","市營巴士 → 縣立美術館","約 20 分・約 ¥310"],
+  ["09:30","青森縣立美術館","青森犬、奈良美智作品"],
+  ["11:00","三內丸山遺跡","步行 5 分；繩文時代世界遺產"],
+  ["t","市營巴士 → 青森站","約 25 分・約 ¥310"],
+  ["13:00","お食事処 おさない","1953 年創業，食べログ食堂百名店；ほたて貝焼みそ定食"],
+  ["t","JR → 新青森，Hayabusa → 盛岡","約 14:15 出發・1 小時・PASS"],
+  ["15:30","GRIDS 盛岡 入住",""],
+  ["16:00","岩手銀行赤レンガ館、盛岡城跡公園","循環巴士でんでんむし號或步行"],
+  ["18:00","白龍 本店","元祖炸醬麵，吃完打蛋做ちいたんたん；盛岡城跡旁"]]},
+ {d:4,date:"11/30",wd:"一",title:"盛岡 → 仙台",stay:"Daiwa Roynet Sendai-nishiguchi PREMIER",items:[
+  ["08:30","福田パン 長田町本店","盛岡人的國民夾心麵包"],
+  ["09:30","開運橋、北上川、光原社","散步"],
+  ["11:00","退房",""],
+  ["t","東北新幹線 Hayabusa 盛岡 → 仙台","約 40 分・PASS"],
+  ["13:00","仙台站牛舌通","午餐"],
+  ["14:00","Daiwa Roynet 仙台西口 入住","西口步行 5 分；連住 4 晚"],
+  ["15:00","一番町・クリスロード商店街","步行 15 分"],
+  ["18:00","八仙（文化横丁）","昭和 28 年餃子老店，煎餃 8 顆 ¥600；17:00 開、賣完就關"]]},
+ {d:5,date:"12/01",wd:"二",title:"山寺・山形",stay:"Daiwa Roynet Sendai-nishiguchi PREMIER",items:[
+  ["t","JR 仙山線 仙台 → 山寺","08:30 出發・1 小時・PASS"],
+  ["09:30","山寺 立石寺","約 1,015 階，雪天石階易滑"],
+  ["11:30","山寺芭蕉記念館","山寺站附近"],
+  ["12:00","垂水遺跡","步行約 30 分；積雪可略過"],
+  ["t","JR 仙山線 山寺 → 山形","約 20 分・PASS"],
+  ["13:30","そば処 庄司屋","慶應年間創業，板そば；山形站步行 7 分，週一公休"],
+  ["14:30","やまがた酒巡り Chetto","縣產酒・葡萄酒試飲"],
+  ["t","JR 仙山線 山形 → 仙台","約 16:30 出發・1 小時 15 分・PASS 最後一天"],
+  ["18:30","壱弐参（いろは）橫丁","戰後市場小巷，挑一家小店吃晚餐；飯店步行約 15 分"]]},
+ {d:6,date:"12/02",wd:"三",title:"ECHOES 早餐・松島",stay:"Daiwa Roynet Sendai-nishiguchi PREMIER",items:[
+  ["t","地下鐵東西線 仙台 → 大町西公園，或步行 20 分","約 ¥210・Suica"],
+  ["08:00","M's キッチン＆カフェ ECHOES","早餐時段到 10 點：季節濃湯＋麵包"],
+  ["09:30","源吾茶屋","明治元年創業，づんだ餅、芝麻餅；同在西公園，步行 5 分"],
+  ["t","JR 仙石線 仙台 → 松島海岸","10:30 出發・40 分・約 ¥420"],
+  ["11:00","松島遊覽船","約 50 分"],
+  ["12:00","さんとり茶屋","面松島灣近 50 年，牡蠣、穴子丼"],
+  ["13:00","瑞巖寺、圓通院、五大堂、福浦橋","步行可達"],
+  ["t","JR 仙石線 → 仙台","約 16:00 出發・40 分・約 ¥420"],
+  ["18:00","たんや善治郎 二日町店","晚餐"]]},
+ {d:7,date:"12/03",wd:"四",title:"仙台站前吃喝買",stay:"Daiwa Roynet Sendai-nishiguchi PREMIER",items:[
+  ["t","るーぷる仙台 觀光循環巴士","一日券約 ¥900"],
+  ["09:00","仙台城跡","伊達政宗騎馬像，看市景"],
+  ["10:00","大崎八幡宮","伊達政宗 1607 年創建的國寶；るーぷる直達"],
+  ["10:45","庄子屋醤油店","江戸末期老店，推薦吟醸仙台味噌；步行 5 分，週日公休"],
+  ["11:30","ankoya 駅前店","方形銅鑼燒"],
+  ["12:30","烤牛舌 善治郎 仙台站前本店","午餐"],
+  ["14:00","ずんだ茶寮 毛豆奶昔","仙台站內"],
+  ["14:30","ヨドバシカメラ 仙台","免稅記得帶護照"],
+  ["18:00","源氏（文化横丁）","最老的居酒屋，一杯酒附一道小菜，最多 4 杯；先確認營業日"]]},
+ {d:8,date:"12/04",wd:"五",title:"金蛇水神社 → 回台灣",stay:"",items:[
+  ["08:00","仙台朝市","早餐，西口步行 5 分"],
+  ["10:00","退房",""],
+  ["t","JR 東北本線 仙台 → 岩沼","約 20 分・約 ¥420"],
+  ["t","計程車 岩沼站 → 金蛇水神社","約 10 分・約 ¥1,500"],
+  ["10:45","金蛇水神社","祈求財運"],
+  ["t","計程車 → 仙台機場","約 15 分・約 ¥3,000，兩人分攤"],
+  ["13:00","機場午餐、買伴手禮","萩之月、牛舌"],
+  ["15:30","報到",""],
+  ["17:25","星宇 JX863 起飛","20:35 抵達桃園 T1"]]}
+];
+const AREA=["東京・青森","八甲田","青森→盛岡","盛岡→仙台","山寺・山形","西公園・松島","仙台市區","名取・機場"];
+const COST=[7000,9000,4500,5500,6500,11000,8500,6000];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const AV1=`<circle cx="40" cy="46" r="24" fill="#F7D3B3"/><path d="M14 36c2-14 14-20 26-20s24 6 26 20z" fill="#3E9A6B"/><rect x="14" y="33" width="52" height="6" rx="3" fill="#F2B705"/><circle cx="40" cy="25" r="4" fill="#F2B705"/><circle cx="31" cy="48" r="3" fill="#4A3B32"/><circle cx="49" cy="48" r="3" fill="#4A3B32"/><ellipse cx="25" cy="56" rx="4" ry="2.5" fill="#F4A7A0"/><ellipse cx="55" cy="56" rx="4" ry="2.5" fill="#F4A7A0"/><path d="M35 57q5 5 10 0" stroke="#4A3B32" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+const AV2=`<path d="M40 22c-6-5-24-6-28 12-4 18 8 38 28 38s32-20 28-38c-4-18-22-17-28-12z" fill="#E2574C"/><path d="M40 23c0-6 2-10 5-13" stroke="#7A4A22" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M44 14c6-6 14-5 16-2-5 5-12 5-16 2z" fill="#5DBB63"/><circle cx="31" cy="46" r="3" fill="#4A3B32"/><circle cx="49" cy="46" r="3" fill="#4A3B32"/><ellipse cx="24" cy="54" rx="4" ry="2.5" fill="#FFB3BD"/><ellipse cx="56" cy="54" rx="4" ry="2.5" fill="#FFB3BD"/><path d="M35 55q5 5 10 0" stroke="#4A3B32" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+const av=(a,d)=>`<svg viewBox="0 0 80 80" aria-hidden="true">${a}</svg>`;
+
+/* hand-placed illustrated maps: stops follow the order of non-transit items */
+const MAPS={
+1:{h:380,div:160,water:["M240 160 Q290 120 360 90 V160 Z","M0 163 H360 V200 Q280 218 200 208 Q120 198 60 212 Q20 218 0 210 Z"],rivers:["M175 0 Q190 60 225 150"],parks:[[95,60,26,14]],
+ areas:[[20,26,"東京"],[20,370,"青森"],[300,152,"東京灣"],[290,196,"青森灣"]],
+ marks:[[60,128,"🗼","東京鐵塔"],[95,64,"🌳","皇居"],[110,240,"🌉","青森灣大橋"],[215,244,"🍎","A-FACTORY"],[275,236,"🚢","八甲田丸"],[332,254,"🔺","ASPAM"],[190,300,"🚉","青森站"]],
+ stops:[[305,118,"✈️"],[200,100,"🍣"],[265,60,"🛕"],[120,36,"🍱"],[240,318,"🏨"],[110,330,"🍜"],[150,272,"🏮"],[310,300,"🥩"]],km:{3:714}},
+2:{water:["M0 0 H210 Q180 40 130 52 Q60 64 0 58 Z"],rivers:["M60 320 Q90 250 170 220 Q230 200 260 140"],parks:[[255,165,95,70]],
+ areas:[[20,312,"青森市"],[230,312,"八甲田山"],[30,28,"陸奧灣"]],
+ marks:[[315,62,"⛰️","八甲田大岳"],[205,62,"🏔️","赤倉岳"],[205,250,"🌲","山毛櫸林"],[40,215,"🚉","青森站"]],
+ stops:[[90,238,"🐟"],[250,118,"🚡"],[300,200,"♨️"],[135,282,"🍶"]],km:{0:30,2:30}},
+3:{div:140,water:["M0 0 H360 V22 Q260 38 180 30 Q90 22 0 34 Z"],rivers:["M150 140 Q170 220 150 320","M340 150 Q270 230 230 320"],parks:[[265,292,34,18]],
+ areas:[[20,132,"青森"],[20,312,"盛岡"],[280,18,"陸奧灣"]],
+ marks:[[150,112,"🚄","新青森站"],[45,182,"⛰️","岩手山"],[175,255,"🌉","開運橋"],[95,290,"🚉","盛岡站"],[268,296,"🏯","盛岡城跡"]],
+ stops:[[280,78,"🏨"],[110,58,"🎨"],[70,108,"🏺"],[225,104,"🐚"],[100,236,"🏨"],[225,206,"🧱"],[300,246,"🍜"]],km:{3:178}},
+4:{div:125,water:[],rivers:["M150 0 Q170 60 160 125","M0 175 Q80 190 70 240 Q60 290 120 320"],parks:[[95,200,20,24]],
+ areas:[[290,24,"盛岡"],[290,312,"仙台"]],
+ marks:[[40,100,"🚉","盛岡站"],[95,205,"🌳","西公園"],[40,262,"🏯","仙台城跡"],[205,160,"🌳","定禪寺通"],[320,292,"🚉","仙台站"]],
+ stops:[[75,45,"🥪"],[185,65,"🌉"],[110,100,"🏨"],[305,232,"🐮"],[260,280,"🏨"],[185,200,"🛍️"],[150,250,"🥟"]],km:{2:183}},
+5:{water:[],rivers:["M120 0 Q150 60 140 130 Q120 200 60 320"],parks:[[55,180,26,16]],
+ areas:[[20,312,"山形"],[300,312,"仙台"],[230,28,"山寺"]],
+ marks:[[55,184,"🏯","霞城公園"],[170,140,"🚉","山寺站"],[95,286,"🚉","山形站"],[175,200,"⛰️","奧羽山脈"],[205,230,"⛰️",""],[320,288,"🚉","仙台站"]],
+ stops:[[200,60,"⛩️"],[150,100,"📜"],[270,92,"🪨"],[55,232,"🍜"],[140,262,"🍶"],[290,240,"🏮"]],km:{2:13,4:58}},
+6:{water:["M190 320 Q220 220 285 200 Q330 190 360 140 V320 Z"],rivers:["M0 240 Q40 245 50 280 Q60 310 90 320"],parks:[[55,190,24,20]],
+ areas:[[20,30,"仙台"],[280,60,"松島"],[290,312,"松島灣"]],
+ marks:[[245,280,"🏝️",""],[320,240,"🏝️",""],[300,288,"🏝️",""],[340,185,"🌉","福浦橋"],[175,262,"🚉","仙台站"]],
+ stops:[[85,228,"☕"],[70,165,"🍡"],[255,205,"🚢"],[310,160,"🦪"],[290,112,"⛩️"],[150,125,"🐮"]],km:{1:23,4:23}},
+7:{water:[],rivers:["M0 120 Q60 130 80 180 Q100 230 60 280 Q40 310 70 320"],parks:[[125,165,20,26],[30,250,28,30]],
+ areas:[[20,30,"北山"],[230,312,"仙台站前"],[30,300,"青葉山"]],
+ marks:[[125,170,"🌳","西公園"],[205,148,"🌳","定禪寺通"],[330,296,"🚉","仙台站"]],
+ stops:[[50,228,"🏯"],[90,55,"⛩️"],[150,88,"🧂"],[250,165,"🥞"],[310,205,"🐮"],[225,245,"🫛"],[300,272,"📷"],[140,212,"🍶"]],km:{}},
+8:{h:340,water:["M290 0 Q310 120 285 200 Q265 260 275 320 H360 V0 Z"],rivers:["M0 150 Q120 160 285 172"],parks:[],
+ areas:[[20,30,"仙台"],[20,312,"岩沼"],[300,30,"太平洋"]],
+ marks:[[110,40,"🚉","仙台站"],[120,232,"🚉","岩沼站"],[150,140,"〰️","名取川"]],
+ stops:[[200,52,"🥬"],[150,92,"🏨"],[70,262,"⛩️"],[185,210,"🍱"],[225,258,"🧳"],[255,304,"✈️"]],km:{1:18}}
+};
+
+function drawMap(m,stops,cur){
+  const W=360,H=m.h||320;let s=`<rect width="${W}" height="${H}" fill="var(--land)"/>`;
+  m.water.forEach(d=>s+=`<path d="${d}" fill="var(--water)"/>`);
+  m.rivers.forEach(d=>s+=`<path d="${d}" fill="none" stroke="var(--water)" stroke-width="12" stroke-linecap="round"/>`);
+  m.parks.forEach(([x,y,rx,ry])=>s+=`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="var(--park)"/>`);
+  if(m.div)s+=`<path d="M0 ${m.div} H${W}" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 6"/>`;
+  [[60,70],[300,250],[180,180]].forEach(([x,y])=>s+=`<text x="${x}" y="${y}" font-size="12" fill="var(--yellow)" stroke="var(--muted)" stroke-width=".4">✦</text>`);
+  s+=`<path d="M300 18 q6 -8 14 -2 q8 -4 12 4 q6 0 4 6 h-32 q-4 -6 2 -8z" fill="#fff" stroke="var(--muted)" stroke-width="1.2" opacity=".9"/>`;
+  m.areas.forEach(([x,y,t])=>s+=`<text x="${x}" y="${y}" font-size="15" font-weight="900" fill="var(--muted)" opacity=".55">${t}</text>`);
+  m.marks.forEach(([x,y,e,t])=>s+=`<text x="${x}" y="${y}" font-size="20" text-anchor="middle">${e}</text>${t?`<text x="${x}" y="${y+13}" font-size="9" text-anchor="middle" fill="var(--muted)">${t}</text>`:""}`);
+  /* route */
+  const P=m.stops;
+  for(let i=1;i<P.length;i++){const [a,b]=[P[i-1],P[i]];const k=m.km[i-1];
+    s+=`<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="var(--ink)" stroke-width="${k?2.2:1.6}" stroke-dasharray="${k?"7 6":"3 4"}" opacity=".7"/>`;
+    if(k)s+=`<g><rect x="${(a[0]+b[0])/2-30}" y="${(a[1]+b[1])/2-10}" width="60" height="18" rx="9" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/><text x="${(a[0]+b[0])/2}" y="${(a[1]+b[1])/2+3}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)">約 ${k} km</text></g>`;}
+  P.forEach(([x,y,e],i)=>{const it=stops[i];const name=it[1].split(/[（(→]/)[0].trim();const lab=`${it[0]} ${name.length>5?name.slice(0,5)+"…":name}`;const w=lab.length*7.2+14;const on=i===cur;
+    s+=`<g class="pin" data-i="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="15" fill="var(--card)" stroke="var(--ink)" stroke-width="2.2"/><text x="${x}" y="${y+6}" font-size="15" text-anchor="middle">${e}</text>
+    <rect x="${x-w/2}" y="${y+18}" width="${w}" height="17" rx="8.5" fill="${on?"var(--red)":"var(--card)"}" stroke="var(--ink)" stroke-width="1.6"/><text x="${x}" y="${y+30}" font-size="10" font-weight="700" text-anchor="middle" fill="${on?"#fff":"var(--ink)"}">${esc(lab)}</text></g>`;});
+  s+=`<g id="walker"><g transform="translate(-30 -44) scale(.42)">${AV1}</g><g transform="translate(-4 -40) scale(.42)">${AV2}</g></g>`;
+  s+=`<g transform="translate(22 ${H-20})"><circle r="12" fill="var(--card)" stroke="var(--muted)" stroke-width="1.5"/><path d="M0 -8 L4 2 H-4Z" fill="var(--red)"/><text y="9" font-size="7" text-anchor="middle" fill="var(--muted)">北</text></g>`;
+  return s;}
+
+/* tabs */
+const tabs=document.getElementById("tabs");
+tabs.innerHTML=`<button class="tab" role="tab" data-d="0"><span class="t">🗺️ 總覽</span><small>東北八日地圖</small></button>`+
+ days.map((x,i)=>`<button class="tab" role="tab" data-d="${x.d}"><span class="t">${av(i%2?AV2:AV1)}Day ${x.d}</span><small>${x.date}（${x.wd}）${AREA[i]}</small></button>`).join("");
+tabs.onclick=e=>{const b=e.target.closest(".tab");if(b)show(+b.dataset.d);};
+
+let timer=null,speed=1,cur=0,STOPS=[],MP=null;
+function stop(){if(timer){cancelAnimationFrame(timer.r);clearTimeout(timer.t);timer=null;}const b=document.getElementById("play");if(b)b.textContent="▶";}
+function setCur(i,anim){
+  const prev=cur;cur=i;const P=MP.stops;
+  document.getElementById("tm").textContent=STOPS[i][0];
+  document.getElementById("tx").textContent=STOPS[i][1];
+  document.getElementById("sl").value=i;
+  document.querySelectorAll(".it[data-i]").forEach(e=>e.classList.toggle("on",+e.dataset.i===i));
+  document.querySelectorAll(".pin").forEach(g=>{const on=+g.dataset.i===i;g.querySelector("rect").setAttribute("fill",on?"var(--red)":"var(--card)");g.querySelectorAll("text")[1].setAttribute("fill",on?"#fff":"var(--ink)");});
+  const w=document.getElementById("walker");const to=P[i],from=P[prev]||to;
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!anim||reduce){w.setAttribute("transform",`translate(${to[0]} ${to[1]})`);return;}
+  const dur=1100/speed,t0=performance.now();
+  const f=now=>{const k=Math.min(1,(now-t0)/dur);const x=from[0]+(to[0]-from[0])*k,y=from[1]+(to[1]-from[1])*k-Math.sin(k*Math.PI)*10;
+    w.setAttribute("transform",`translate(${x} ${y})`);if(k<1){const r=requestAnimationFrame(f);if(timer)timer.r=r;}};
+  const r=requestAnimationFrame(f);if(timer)timer.r=r;}
+function show(d){
+  stop();
+  tabs.querySelectorAll(".tab").forEach(b=>{const on=+b.dataset.d===d;b.setAttribute("aria-selected",on);if(on)b.scrollIntoView({block:"nearest",inline:"center"});});
+  try{history.replaceState(null,"","#d"+d);}catch(e){}
+  const main=document.getElementById("main");
+  if(d===0){main.innerHTML=overview();return;}
+  const x=days[d-1];MP=MAPS[d];STOPS=x.items.filter(i=>i[0]!=="t");cur=0;
+  let n=-1;
+  const list=x.items.map(i=>{if(i[0]==="t"){const k=(i[1].match(/新青森，轉奧羽/)?714:i[1].match(/Hayabusa → 盛岡/)?178:i[1].match(/盛岡 → 仙台/)?183:i[1].match(/山形 → 仙台/)?58:i[1].match(/松島海岸|仙石線 → 仙台/)?23:i[1].match(/八甲田纜車站|JR 巴士 → 青森站/)?30:i[1].match(/仙台 → 岩沼/)?18:i[1].match(/仙台 → 山寺/)?49:i[1].match(/山寺 → 山形/)?13:0);
+      return `<li class="go">${esc(i[1])}・${esc(i[2])}${k?`<em>約 ${k} km</em>`:""}</li>`;}
+    n++;const q=i[1].split(/[→（(]/)[0].trim();const nolink=/^(退房|報到|青森退房|抵達羽田|星宇)/.test(i[1]);
+    return `<li class="it" data-i="${n}"><time>${i[0]}</time><div><strong>${esc(i[1])}</strong>${i[2]?`<small>${esc(i[2])}</small>`:""}${nolink?"":`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">📍 Google 地圖</a>`}</div></li>`;}).join("");
+  main.innerHTML=`
+  <section class="box head"><div class="row">${av(d%2?AV1:AV2)}<div><h2>Day ${d}：${esc(x.title)}</h2><p>2026/${x.date}（${x.wd}）・${AREA[d-1]}</p></div></div>
+   <span class="cost">當日合計 ¥${COST[d-1].toLocaleString()}<small>每人預估</small></span></section>
+  <section class="box mapbox">
+   <svg viewBox="0 0 360 ${MP.h||320}" role="img" aria-label="第 ${d} 天手帳示意地圖">${drawMap(MP,STOPS,0)}</svg>
+   <div class="now"><span class="tm" id="tm"></span><span class="tx" id="tx"></span></div>
+   <div class="ctrl"><button class="play" id="play" type="button" aria-label="播放">▶</button>
+     <input id="sl" type="range" min="0" max="${STOPS.length-1}" step="1" value="0" aria-label="行程進度">
+     <button class="spd" id="spd" type="button">×${speed}</button></div>
+   <div class="team"><span>${av(AV1)}小柏</span><span>${av(AV2)}雯莉</span></div>
+   <ol>${list}</ol>
+   ${x.stay?`<p class="stay">🛏️ 今晚住：${esc(x.stay)}</p>`:""}
+  </section>`;
+  setCur(0,false);
+  document.querySelectorAll(".pin").forEach(g=>g.onclick=()=>{stop();setCur(+g.dataset.i,true);});
+  document.querySelectorAll(".it[data-i]").forEach(e=>e.onclick=ev=>{if(ev.target.closest("a"))return;stop();setCur(+e.dataset.i,true);});
+  document.getElementById("sl").oninput=e=>{stop();setCur(+e.target.value,true);};
+  document.getElementById("spd").onclick=function(){speed=speed>=4?1:speed*2;this.textContent="×"+speed;};
+  document.getElementById("play").onclick=function(){
+    if(timer){stop();return;}
+    if(cur>=STOPS.length-1)setCur(0,false);
+    this.textContent="❚❚";timer={};
+    const step=()=>{if(!timer)return;if(cur>=STOPS.length-1){stop();return;}setCur(cur+1,true);timer.t=setTimeout(step,(1100+900)/speed);};
+    timer.t=setTimeout(step,300/speed);};
+}
+function overview(){
+  const C=[["東京",200,300,"s"],["青森",190,40,"s"],["盛岡",215,125,"e"],["山形・山寺",110,245,"s"],["仙台",210,225,"e"],["松島",280,190,"s"]];
+  let s=`<rect width="360" height="320" fill="var(--land)"/><path d="M0 0 H120 Q90 90 80 160 Q60 240 0 300 Z" fill="var(--water)"/><path d="M360 0 V320 H300 Q330 250 310 180 Q290 110 310 0 Z" fill="var(--water)"/>
+  <text x="18" y="120" font-size="14" font-weight="900" fill="var(--muted)" opacity=".6">日本海</text><text x="318" y="100" font-size="12" font-weight="900" fill="var(--muted)" opacity=".6">太平洋</text>
+  <text x="170" y="80" font-size="20">⛰️</text><text x="160" y="94" font-size="9" fill="var(--muted)">八甲田</text><text x="165" y="185" font-size="20">⛰️</text><text x="150" y="199" font-size="9" fill="var(--muted)">奧羽山脈</text>`;
+  const L=[[0,1,"714"],[1,2,"178"],[2,4,"183"],[4,3,"58"],[4,5,"23"]];
+  L.forEach(([a,b,k])=>{const A=C[a],B=C[b];if(a===0){s+=`<path d="M${A[1]} ${A[2]} Q330 170 ${B[1]} ${B[2]}" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-dasharray="7 6" opacity=".75"/><rect x="236" y="161" width="52" height="17" rx="8.5" fill="var(--card)" stroke="var(--ink)" stroke-width="1.4"/><text x="262" y="173" font-size="10" font-weight="700" text-anchor="middle" fill="var(--ink)">${k} km</text>`;return;}s+=`<path d="M${A[1]} ${A[2]} L${B[1]} ${B[2]}" stroke="var(--ink)" stroke-width="2.2" stroke-dasharray="7 6" opacity=".75"/>
+   <rect x="${(A[1]+B[1])/2-26}" y="${(A[2]+B[2])/2-9}" width="52" height="17" rx="8.5" fill="var(--card)" stroke="var(--ink)" stroke-width="1.4"/><text x="${(A[1]+B[1])/2}" y="${(A[2]+B[2])/2+3}" font-size="10" font-weight="700" text-anchor="middle" fill="var(--ink)">${k} km</text>`;});
+  C.forEach(([n,x,y,an])=>s+=`<circle cx="${x}" cy="${y}" r="9" fill="var(--red)" stroke="var(--ink)" stroke-width="2"/><text x="${an==="e"?x-14:x+(n==="山形・山寺"?-30:14)}" y="${n==="山形・山寺"?y+26:y+5}" font-size="14" font-weight="900" text-anchor="${an==="e"?"end":"start"}" fill="var(--ink)">${n}</text>`);
+  return `<section class="box head"><div class="row">${av(AV1)}<div><h2>總覽：東北八日地圖</h2><p>東京 → 青森 2 晚 → 盛岡 1 晚 → 仙台 4 晚</p></div></div>
+   <span class="cost">八日合計 ¥${COST.reduce((a,b)=>a+b,0).toLocaleString()}<small>每人預估，不含住宿機票</small></span></section>
+  <section class="box mapbox"><svg viewBox="0 0 360 320" role="img" aria-label="東北八日路線示意">${s}</svg>
+   <div class="team"><span>${av(AV1)}小柏</span><span>${av(AV2)}雯莉</span></div></section>
+  <section class="box info"><h3>✈️ 航班</h3><div class="scroll"><table><tr><th>日期</th><th>航班</th><th>時間</th></tr>
+   <tr><td>11/27</td><td>虎航 IT216 桃園 T1 → 羽田 T3</td><td>00:10 → 04:25</td></tr>
+   <tr><td>12/04</td><td>星宇 JX863 仙台 → 桃園 T1</td><td>17:25 → 20:35</td></tr></table></div></section>
+  <section class="box info"><h3>🏨 住宿</h3><div class="scroll"><table><tr><th>日期</th><th>飯店</th></tr>
+   <tr><td>11/27–29</td><td>Daiwa Roynet Hotel Aomori</td></tr><tr><td>11/29–30</td><td>GRIDS PREMIUM HOTEL MORIOKA</td></tr><tr><td>11/30–12/04</td><td>Daiwa Roynet Sendai-nishiguchi PREMIER</td></tr></table></div></section>
+  <section class="box info"><h3>🎫 票券</h3><div class="scroll"><table><tr><th>票券</th><th>價格</th><th>用在</th></tr>
+   <tr><td>JR EAST PASS 5 日</td><td>¥35,000</td><td>11/27–12/01 新幹線、JR、八甲田 JR 巴士</td></tr>
+   <tr><td>Suica</td><td>儲值</td><td>12/02 起的電車、地下鐵</td></tr>
+   <tr><td>るーぷる仙台一日券</td><td>約 ¥900</td><td>12/03</td></tr></table></div></section>`;}
+
+/* skins + clock */
+const root=document.documentElement;
+try{const s=localStorage.getItem("tohoku-skin");if(s)root.dataset.skin=s;}catch(e){}
+const skinBtns=document.querySelectorAll("button[data-skin]");
+const markSkin=()=>skinBtns.forEach(b=>b.setAttribute("aria-pressed",root.dataset.skin===b.dataset.skin));
+skinBtns.forEach(b=>b.onclick=()=>{const v=b.dataset.skin;if(root.dataset.skin===v)delete root.dataset.skin;else root.dataset.skin=v;try{localStorage.setItem("tohoku-skin",root.dataset.skin||"");}catch(e){}markSkin();});
+markSkin();
+const tick=()=>{document.getElementById("jst").textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Tokyo",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());};
+tick();setInterval(tick,15000);
+const h=(location.hash.match(/^#d([0-8])$/)||[])[1];
+const today=(()=>{const t=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Tokyo"}));const k=Math.floor((t-new Date(2026,10,27))/864e5)+1;return k>=1&&k<=8?k:0;})();
+show(h!==undefined?+h:today);
+</script>
+</body>
+</html>
